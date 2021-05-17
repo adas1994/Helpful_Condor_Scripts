@@ -1,0 +1,14 @@
+universe              = vanilla
+Executable            = executable_name
+Should_Transfer_Files = YES
+WhenToTransferOutput  = ON_EXIT
+Proxy_path            = generic_ppath
+Transfer_Input_Files  = executable_path, $(Proxy_path)
+Output                = timestamp/sleep_$(Cluster)_$(Process).stdout
+Error                 = timestamp/sleep_$(Cluster)_$(Process).stderr
+Log                   = timestamp/sleep_$(Cluster)_$(Process).log
+Arguments             = $(Proxy_path) CMSSW_BASE tarfile_path job_number storage_dir
+request_memory        = 8000
+request_cpus          = 4
++JobFlavour = "tomorrow"
+Queue 
